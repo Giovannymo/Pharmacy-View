@@ -19,9 +19,8 @@
 			<li class="divider" data-text="Principal">Principal</li>
 			<li><a href="./product.html"><i class='bx bxs-chart icon ' ></i> Productos </a></li>
 			<li class="rounded-3 "><a href="./employee.html" ><i class='bx bxs-widget icon' ></i> Empleados</a></li>
-      <li class="bg-info  rounded-3 "><a href="#" class="text-white"  ><i class='bx bxs-widget icon' ></i> Proveedor</a></li>
-      <li class="rounded-3 "><a href="./pacient.html" ><i class='bx bxs-widget icon' ></i> Clientes</a></li>
-
+      <li class="rounded-3 "><a href="./supplier.html" ><i class='bx bxs-widget icon' ></i> Proveedor</a></li>
+      <li class="bg-info  rounded-3 "><a href="#" class="text-white" ><i class='bx bxs-widget icon' ></i> Clientes</a></li>
 			<li class="divider" data-text="table and forms">Table and forms</li>
 			<li><a href="#"><i class='bx bx-table icon' ></i> Tables</a></li>
 			<li>
@@ -70,31 +69,30 @@
 			<div class="info-data col-12">
 				<div class="card">
 					<div class="head align-items-center flex-column">
-							<h2 class="text-center">Agregar nuevo proveedor.</h2>
-							<button id="btnAdd" class="btn btn-primary">Agregar</button>
+							<h2 class="text-center">Consultar todos los pacientes.</h2>
+							<button id="btnAdd" class="btn btn-primary">Consultar</button>
 					</div>
 				</div>
 				<div class="card">
 					<div class="head align-items-center flex-column">
-						<h2 class="text-center">Eliminar proveedor.</h2>
+						<h2 class="text-center">Eliminar pacientes de los registros.</h2>
 						<button class="btn btn-primary">Eliminar</button>
 				</div>
 				</div>
-				<div class="card">
-					<div class="head align-items-center flex-column">
-						<h2 class="text-center">Consultar medicamentos por proveedor.</h2>
-						<button id="purchaseSupplier" class="btn btn-primary">Consultar</button>
-				</div>
-				</div>
-				<div class="card">
-					<div class="head align-items-center flex-column">
-						<h2 class="text-center">Consultar proveedores.</h2>
-						<button id="saleProduct" class="btn btn-primary">Editar</button>
-				</div>
-				</div>
+
 			</div>
 			<div class="data">
 				<div class="content-data">
+					<table id="datatable-users" class="table">
+						<thead>
+							<tr>
+								<th scope="col">#</th>
+							</tr>
+						</thead>
+						<tbody id="tableUsers">
+							
+						</tbody>
+					</table>
         
         </div>		
 			</div>
@@ -165,6 +163,9 @@
 </div>
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+	<!--Query-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" defer></script>
+	<!--Datatable-->
 
 </body>
 
