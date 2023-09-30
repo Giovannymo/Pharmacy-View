@@ -53,13 +53,13 @@
   <!-- Pills content -->
   <div class="tab-content">
     <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
-      <form>
+      <form id="LoginForm" class="d-grid">
         <div class="text-center mb-3">
           <p>Sign in with:</p>
           <button type="button" class="btn btn-link btn-floating mx-1">
             <i class="fab fa-facebook-f"></i>
           </button>
-  
+          
           <button type="button" class="btn btn-link btn-floating mx-1">
             <i class="fab fa-google"></i>
           </button>
@@ -77,7 +77,7 @@
   
         <!-- Email input -->
         <div class="form-outline mb-4">
-          <input type="email" id="loginName" class="form-control" />
+          <input type="text" id="loginName" class="form-control" />
           <label class="form-label" for="loginName">Email or username</label>
         </div>
   
@@ -104,7 +104,7 @@
         </div>
   
         <!-- Submit button -->
-        <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
+        <button type="button" class="btn btn-primary btn-block mb-4" id="btnLogin">Sign in</button>
   
         <!-- Register buttons -->
         <div class="text-center">
@@ -113,7 +113,7 @@
       </form>
     </div>
     <div class="tab-pane fade" id="pills-register" role="tabpanel" aria-labelledby="tab-register">
-      <form>
+      <form id="RegisterForm">
         <div class="text-center mb-3">
           <p>Sign up with:</p>
           <button type="button" class="btn btn-link btn-floating mx-1">
@@ -135,11 +135,7 @@
   
         <p class="text-center">or:</p>
   
-        <!-- Name input -->
-        <div class="form-outline mb-4">
-          <input type="text" id="registerName" class="form-control" />
-          <label class="form-label" for="registerName">Name</label>
-        </div>
+
   
         <!-- Username input -->
         <div class="form-outline mb-4">
@@ -175,7 +171,7 @@
         </div>
   
         <!-- Submit button -->
-        <a href="../index.html"><button type="submit" class="btn btn-primary btn-block mb-3" id="btnRegister">Sign in</button></a>
+        <button type="submit" class="btn btn-primary btn-block mb-3" id="btnRegister">Sign up</button>
       </form>
     </div>
   </div>
@@ -186,8 +182,8 @@
           
                 </div>
                 <div class="col-sm-6 px-0 d-none d-sm-block">
-                  <img src="https://i0.wp.com/lopezdoriga.com/wp-content/uploads/2018/05/pastillas-tabletas-medicamentos-medicina.jpg?ssl=1"
-                    alt="Login image" class="w-100 vh-100" style="object-fit: cover; object-position: left;">
+                  <img src="../Assets/Img/login.png"
+                    alt="Login image" style=" object-position: left; height: 80vh; width: 900px;margin-top: 100px;">
                 </div>
               </div>
             </div>
@@ -200,5 +196,11 @@
       type="text/javascript"
       src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.js"
     ></script>
-    <script src="../Js/Login.js"></script>
+    <script type="module" src="./../Js/Login.js"></script>
+    <script>
+      document.getElementById("LoginForm").addEventListener("click", function(event){
+    event.preventDefault();
+})
+
+    </script>
 </html>
