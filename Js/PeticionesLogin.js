@@ -28,21 +28,15 @@ class LoginTemplate {
     }}
 
 class PeticionesManagement{
-    async staticGetDatos(direccion){
+    async GetDatos(direccion){
         let data = await( await fetch(`${URL}/${direccion}`)).json();
-        return data 
+        return data ;
     }
 
-    async PostDatos(data,direccion){
-        let response = await fetch(`${URL}/${direccion}`, configurarAccion("POST",data))
-        let datos = await response.json();
-        if (datos.message == "si") {
-            window.location.href = "../index.html";
-        } else {
-            // Se asume que si no es 200, hay algún tipo de error
-            alert("Este usuario no se encuentra registrado");
-        }
-    }  
+        async PostDatos(data,direccion){
+            let response = await(await fetch(`${URL}/${direccion}`, configurarAccion("POST",data))).text();
+            return response;
+        }  
 
     async PutDatos(data,direccion,id){
         try{
