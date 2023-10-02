@@ -58,7 +58,7 @@ async function LoginUsuario(){
     try{
         let response = await peticionesUser.PostDatos(LoginUser,"User/token");  
         let toJson = JSON.parse(response);
-        if(toJson.IsAuthorized == true)
+        if(toJson.isAuthenticated == true)
         {
             window.location.href = "../index.html";
         }
