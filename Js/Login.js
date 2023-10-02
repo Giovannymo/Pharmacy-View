@@ -85,7 +85,7 @@ async function renewAccessToken(){
     const refreshToken = localStorage.getItem("refreshToken");
     if(refreshToken){
         try {
-            const response = await peticionesUser.PostDatos({refreshToken}, "User/refreshToken");
+            const response = await peticionesUser.PostDatos({refreshToken}, "User/refresh-token");
             if (response.isAuthenticated)
             {
                 const newAccessToken = response.token;
