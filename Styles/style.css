@@ -281,8 +281,8 @@ nav .profile {
 	position: relative;
 }
 nav .profile img {
-	width: 36px;
-	height: 36px;
+	width: 40px;
+	height: 40px;
 	border-radius: 50%;
 	object-fit: cover;
 	cursor: pointer;
@@ -327,10 +327,18 @@ main {
 	padding: 24px 20px 20px 20px;
 }
 main .title {
-	font-size: 28px;
-	font-weight: 600;
-	margin-bottom: 10px;
+  font-size: 35px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+	align-items: center;
+	color: var(--dark-blue);
+	font-weight: bold;
+  text-shadow: 3px 3px 5px rgba(27, 53, 201, 0.966);
 }
+
+
 main .breadcrumbs {
 	display: flex;
 	grid-gap: 6px;
@@ -350,14 +358,14 @@ main .breadcrumbs li.divider {
 main .info-data {
 	margin-top: 36px;
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+	grid-template-columns: repeat(4, minmax(240px, 1fr));
 	grid-gap: 20px;
 }
 main .info-data .card {
 	padding: 20px;
 	border-radius: 10px;
 	background: var(--light);
-	box-shadow: 4px 4px 16px rgba(0, 0, 0, .05);
+	box-shadow: 4px 4px 16px rgb(47, 47, 47);
 }
 main .card .head {
 	display: flex;
@@ -575,10 +583,16 @@ main .btn-send:hover {
 /* MAIN */
 /* CONTENT */
 
+.fondo {
+	background-image: url(../Assets/Img/serkan-yildiz-W28dHvdQ0YE-unsplash.jpg);
+}
 
-
-
-
+.contitu
+{
+	display: flex;
+	justify-content: center;
+	text-align: center;
+}
 
 @media screen and (max-width: 768px) {
 	#content {
@@ -591,3 +605,15 @@ main .btn-send:hover {
 		display: none;
 	}
 }
+
+input {
+	border-radius: 2%;
+	border: groove rgb(137, 137, 142);
+}
+
+td:empty, th:empty {
+  border: none; /* Elimina los bordes de celdas vacías */
+}
+
+
+
