@@ -47,7 +47,7 @@ async function LoginUsuario(){
         return;
     }
     try{
-        let response = await peticionesUser.PostDatos(LoginUser,"User/token");  
+        let response = await fetchData("User/token",LoginUser);  
         let toJson = JSON.parse(response);
         if(toJson.isAuthenticated == true)
         {
@@ -57,7 +57,7 @@ async function LoginUsuario(){
             }
 
             await renewAccessToken();
-            window.location.href = "../index.html";
+            window.location.href = "../View/employee.html";
         }
         else{
             alert(toJson.message);
@@ -68,7 +68,15 @@ async function LoginUsuario(){
     }
 
 }
-
+async function fetchData(url, config){
+    try{
+      const response = await fetch(`http://localhost:5043/ApiPharmacy/Employee/${url}`, config);
+      const data = await response.json();
+      return data;
+      }catch (error) {
+      console.error('Error a la peticion de Empleados', error);
+    };
+  }
 function setRefeshTokenCookie(refreshToken)
 {
     document.cookie = `refreshToken=${refreshToken}; Secure; HttpOnly; Expires = ${getCookieExpirationDate()}`;

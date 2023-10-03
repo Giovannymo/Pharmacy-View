@@ -1,4 +1,22 @@
 document.getElementById("logoutButton").addEventListener("click", logout);
+const $infoData = document.querySelector(".info-data");
+
+$infoData.addEventListener("click", actionTo);
+
+window.addEventListener("load",async ()=>{
+  const products = await getDataProduct("");
+
+  let contentProduct = "";
+  console.log(products);
+
+
+  products.forEach((product)=>{ 
+      contentProduct += `
+      <option>${product.name}</option>
+      `
+  })
+  $selectProducts.innerHTML = contentProduct;
+})
 function logout(e) {
   e.preventDefault();
   console.log("Entro log");
@@ -11,3 +29,4 @@ function logout(e) {
   window.location.href = "./login.html";
   
 } 
+

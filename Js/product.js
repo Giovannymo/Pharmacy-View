@@ -1,3 +1,4 @@
+document.getElementById("logoutButton").addEventListener("click", logout);
 const $templateTableProducts = document.getElementById("table-products").content;
 const $modalBody = document.querySelector(".modal-body");
 const $selectSuppliers = document.getElementById("selectSuppliers");
@@ -10,14 +11,20 @@ window.addEventListener("load",async ()=>{
   const suppliers = await getDataSuppliers();
   let content = "";
 
-  console.log(suppliers);
-  suppliers.forEach((supplier)=>{ 
-      content += `
-      <option>${supplier.name}</option>
-      `
-  })
+  if (Array.isArray(suppliers)) 
+  {
+    console.log(suppliers);
+    suppliers.forEach((supplier)=>{ 
+        content += `
+        <option>${supplier.name}</option>
+       `
+    })
+  }else{
+        content += `
+        <option>${suppliers.name}</option>
+      `;
+  }
   $selectSuppliers.innerHTML = content;
-
   const products = await getDataProduct("");
 
   let contentProduct = "";
@@ -144,7 +151,6 @@ async function  actionTo(e){
     <tr>
       <th scope="col">#</th>
       <th scope="col">Nombre</th>
-      <th scope="col">Stock</th>
     </tr>`;
 
     $headTable.innerHTML = contentHead;
@@ -155,7 +161,6 @@ async function  actionTo(e){
       <tr>
         <th scope="row">${product.id}</th>
         <td>${product.name}</td>
-        <td>${product.stock}</td>
       </tr>
      
       `
@@ -369,7 +374,7 @@ async function  getDataProduct(endPoint){
 
 async function getDataSuppliers(){
   try {
-    const res = await fetch(`http://localhost:5043/ApiPharmacy/Supplier`);
+    const res = await fetch(`http://localhost:5043/ApiPharmacy/Supplier/List`);
     const data = await res.json();
     
     return data;
@@ -377,7 +382,6 @@ async function getDataSuppliers(){
   } catch (e) {
     alert(e);
   }
-  return data;
 }
 async function getDataSales(endPoint){
   try {
@@ -396,3 +400,16 @@ function clear(thead, tbody){
   thead.innerHTML = "";
   tbody.innerHTML="";
 }
+
+function logout(e) {
+  e.preventDefault();
+  console.log("Entro log");
+  // Eliminar las cookies de accessToken y refreshToken configurando una fecha en el pasado
+  document.cookie = "accessToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+  document.cookie = "refreshToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+  document.cookie = "jobsTitle=;  expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"
+
+  // Redirigir al usuario a la página de inicio de sesión
+  window.location.href = "./login.html";
+  
+} 

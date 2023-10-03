@@ -11,3 +11,10 @@
     height: 100%;
     }
     }
+.title {
+    font-size:65px;
+    font-weight: 600;
+    color: var(--dark-blue);
+	font-weight: bold;
+    text-shadow: 3px 3px 5px rgba(27, 53, 201, 0.966);
+}
