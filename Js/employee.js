@@ -1,5 +1,5 @@
 import {displayEmployee, displayInfEmplo, deleteEmployee} from './appEmp.js';
-
+document.getElementById("logoutButton").addEventListener("click", logout);
 const $contentData = document.querySelector(".content-data");
 const $btnAdd = document.getElementById("btnAdd");
 //export const formEmployee = document.getElementById('form-employee')
@@ -127,3 +127,16 @@ formF.addEventListener('submit', function(e) {
 function clear(contenido){
   contenido.innerHTML = "";
 }
+
+function logout(e) {
+  e.preventDefault();
+  console.log("Entro log");
+  // Eliminar las cookies de accessToken y refreshToken configurando una fecha en el pasado
+  document.cookie = "accessToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+  document.cookie = "refreshToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+  document.cookie = "jobsTitle=;  expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"
+
+  // Redirigir al usuario a la página de inicio de sesión
+  window.location.href = "./login.html";
+  
+} 

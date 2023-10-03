@@ -11,7 +11,6 @@ import {
 const $btnAdd = document.getElementById("btnAdd");
 const $contentData = document.querySelector(".content-data");
 
-
 export const ListSup = document.getElementById('ListSup')
 export const DeleteSup = document.getElementById('DeleteSup') 
 export const UpdateSup = document.getElementById('UpdateSup')
@@ -25,6 +24,7 @@ export const formG = document.getElementById('formG')
 export const formH = document.getElementById('formH')
 export const tablaSupplier = document.getElementById('tablaSupplier')
 export const staticLabel = document.getElementById('staticBackdropLabel')
+document.getElementById("logoutButton").addEventListener("click", logout);
 
 $btnAdd.addEventListener("click", addSupplier);
 
@@ -155,3 +155,16 @@ formH.addEventListener('submit', function(e) {
 function clear(contenido){
 contenido.innerHTML = "";
 }
+
+function logout(e) {
+  e.preventDefault();
+  console.log("Entro log");
+  // Eliminar las cookies de accessToken y refreshToken configurando una fecha en el pasado
+  document.cookie = "accessToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+  document.cookie = "refreshToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+  document.cookie = "jobsTitle=;  expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"
+
+  // Redirigir al usuario a la página de inicio de sesión
+  window.location.href = "./login.html";
+  
+} 
