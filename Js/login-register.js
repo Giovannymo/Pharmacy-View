@@ -14,7 +14,7 @@ async function RegistrarUsuario(e) {
       password: registerPassword,
       email: registerEmail,
     };
-
+    
     const config = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
